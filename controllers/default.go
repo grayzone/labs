@@ -1,14 +1,13 @@
 package controllers
 
-import (
-	"github.com/astaxie/beego"
-)
+import "github.com/kataras/iris/mvc"
 
 type MainController struct {
-	beego.Controller
+	mvc.Controller
 }
 
 func (c *MainController) Get() {
-	c.TplName = "index.html"
-	c.Layout = "layout.html"
+	c.Ctx.ViewData("LayoutContent", "containers")
+	c.Ctx.View("layout.html")
+
 }

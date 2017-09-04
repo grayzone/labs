@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  db:
+    image: grayzone/pgdb
+    restart: always
+    container_name: pgdb
+    environment: 
+      POSTGRES_PASSWORD: 123456
+    ports:
+     - 5432:5432
+#    volumes:
+#     - '/svr/pgdb/data:/var/lib/postgresql/data'
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+     - 9876:8080    
