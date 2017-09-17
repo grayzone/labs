@@ -1,20 +1,15 @@
 package models
 
-import "github.com/astaxie/beego/orm"
-
 type PDFModule struct {
-	ID      int    `orm:"pk;auto;column(id)"`
-	MD5     string `orm:"column(md5)"`
-	Content []byte `orm:"type(bytea)"`
+	ID      int64
+	MD5     string `gorm:"column:md5"`
+	Content []byte
 }
 
-func (m *PDFModule) TableName() string {
+func (PDFModule) TableName() string {
 	return "pdfmodule"
 }
 
-func GetPDFInfo() PDFModule {
-	var result PDFModule
-
-	orm.NewOrm().Read(&result)
-	return result
+func (p *PDFModule) Read() {
+	orm.Find(p)
 }

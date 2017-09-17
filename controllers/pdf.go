@@ -1,18 +1,17 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"github.com/grayzone/labs/models"
+	"github.com/kataras/iris"
 )
 
 type PDFController struct {
-	beego.Controller
+	iris.Controller
 }
 
-func (c *PDFController) PDFInfo() {
-
-	result := models.GetPDFInfo()
-
-	c.Data["json"] = &result
-	c.ServeJSON()
+func (c *PDFController) PostInfo() {
+	var pdf models.PDFModule
+	pdf.ID, _ = c.Ctx.PostValueInt64("id")
+	pdf.Read()
+	c.Ctx.JSON(pdf)
 }

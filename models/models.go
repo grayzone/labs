@@ -3,33 +3,38 @@ package models
 import (
 	"fmt"
 
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
+	"github.com/jinzhu/gorm"
 
-	_ "github.com/lib/pq"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
+
+var orm *gorm.DB
 
 func init() {
 
-	//	initPostgres()
-	//	createTables()
+	initPostgres()
+	createTables()
 }
 
 func initPostgres() {
-	beego.Info("enable postgres")
-	orm.Debug = false
-	orm.RegisterDriver("postgres", orm.DRPostgres)
-	connstr := "user=postgres password=123456 sslmode=disable dbname=" + beego.AppConfig.String("dbname") + " host=" + beego.AppConfig.String("dbhost")
-	fmt.Println(connstr)
-	orm.RegisterDataBase("default", "postgres", connstr)
+	//	connstr := "user=postgres password=123456 sslmode=disable dbname=labs " + beego.AppConfig.String("dbname") + " host=" + beego.AppConfig.String("dbhost")
+	connstr := "user=postgres password=123456 sslmode=disable dbname=labs_test host=127.0.0.1"
+	fmt.Println("db connection:", connstr)
+	var err error
+	orm, err = gorm.Open("postgres", connstr)
+	if err != nil {
+		fmt.Printf(err.Error())
+		panic("failed to connect database")
+	}
+	orm.LogMode(true)
+	orm.DB().SetMaxIdleConns(10)
+	orm.DB().SetMaxOpenConns(100)
 }
 
-func createTables() error {
-	orm.RegisterModel(new(PDFModule))
+func createTables() {
+	orm.AutoMigrate(&PDFModule{})
+}
 
-	name := "default"
-	force := false
-	verbose := true
-	err := orm.RunSyncdb(name, force, verbose)
-	return err
+func CloseDB() {
+	orm.Close()
 }

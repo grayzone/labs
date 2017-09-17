@@ -18,7 +18,7 @@ export default class Containers extends React.Component {
             <a href="/company">公司</a>
           </Menu.Item>
         </Menu>
-        This is template page.
+        This is template page for new feature.
       </div>
     );
   }
