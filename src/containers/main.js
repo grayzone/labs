@@ -8,7 +8,7 @@ export default class Containers extends React.Component {
         <Menu mode="horizontal">
           <Menu.Item>
             <a href="/">
-              <b>Hanuman</b>
+              <b>LABS</b>
             </a>
           </Menu.Item>
           <Menu.Item key="list">

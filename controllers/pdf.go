@@ -2,11 +2,11 @@ package controllers
 
 import (
 	"github.com/grayzone/labs/models"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/mvc"
 )
 
 type PDFController struct {
-	iris.Controller
+	mvc.Controller
 }
 
 func (c *PDFController) PostInfo() {

@@ -16,8 +16,8 @@ var (
 func configure(app *iris.Application) {
 	app.Configure(iris.WithoutServerError(iris.ErrServerClosed), iris.WithCharset("UTF-8"))
 	templates := iris.HTML("./views", ".html")
-	templates.Layout("layout.html")
-	templates.Reload(true)
+	//	templates.Layout("layout.html")
+	//	templates.Reload(true)
 	app.RegisterView(templates)
 	app.StaticWeb("/static", "./static")
 	app.StaticWeb("/download", "./download")
@@ -32,7 +32,7 @@ func main() {
 
 	app.Logger().SetLevel("debug")
 
-	app.Controller("/", new(controllers.MainController))
+	app.Controller("/", new(controllers.IndexController))
 
 	iris.RegisterOnInterrupt(models.CloseDB)
 

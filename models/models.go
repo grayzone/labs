@@ -18,7 +18,7 @@ func init() {
 
 func initPostgres() {
 	//	connstr := "user=postgres password=123456 sslmode=disable dbname=labs " + beego.AppConfig.String("dbname") + " host=" + beego.AppConfig.String("dbhost")
-	connstr := "user=postgres password=123456 sslmode=disable dbname=labs_test host=127.0.0.1"
+	connstr := "user=postgres password=123456 sslmode=disable dbname=labs_test host=127.0.0.1 port=5433"
 	fmt.Println("db connection:", connstr)
 	var err error
 	orm, err = gorm.Open("postgres", connstr)

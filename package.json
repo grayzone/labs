@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack -d -w -p --env=dev --progress --colors --devtool source-map",
     "build:prod": "webpack --env=prod --progress --profile --colors",
-    "start": "bee run",
+    "start": "go run main.go",
     "init": "go get -u -v github.com/golang/dep/... && dep init && yarn install",
     "update": "go get -u -v github.com/golang/dep/... && dep ensure -update -v && yarn upgrade",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,22 +13,23 @@
   "author": "grayzone",
   "license": "ISC",
   "dependencies": {
+    "antd": "latest",
     "babel-core": "latest",
     "babel-loader": "latest",
+    "babel-plugin-import": "latest",
     "babel-preset-es2015": "latest",
     "babel-preset-react": "latest",
+    "babel-preset-stage-2": "latest",
     "css-loader": "latest",
     "eslint": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "webpack": "latest",
-    "antd": "latest",
-    "babel-plugin-import": "latest",
-    "babel-preset-stage-2": "latest",
     "jquery": "latest",
     "less": "latest",
     "less-loader": "latest",
     "postcss-loader": "latest",
-    "style-loader": "latest"
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "^5.0.6",
+    "style-loader": "latest",
+    "webpack": "latest"
   }
 }
