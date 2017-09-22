@@ -1,8 +1,10 @@
 version: '2'
 
+#"registry-mirrors": ["https://registry.docker-cn.com"]
+
 services:
   db:
-    image: grayzone/pgdb
+    image:  grayzone/pgdb
     restart: always
     container_name: pgdb
     environment: 
@@ -12,7 +14,8 @@ services:
 #    volumes:
 #     - '/svr/pgdb/data:/var/lib/postgresql/data'
   adminer:
-    image: adminer
+    image:  adminer
+    restart: always
     container_name: adminer
     ports:
      - 9876:8080    

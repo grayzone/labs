@@ -45,13 +45,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  devServer: {
-    port: 7777,
-    host: "localhost",
-    historyApiFallback: true,
-    noInfo: false,
-    stats: "minimal"
-    //    publicPath: publicPath
   }
 };
