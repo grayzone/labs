@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack -d -w -p --env=dev --progress --colors --devtool cheap-module-source-map",
+    "build": "webpack -d -w -p --env=dev --progress --colors --devtool source-map",
     "build:prod": "webpack --env=prod --progress --profile --colors",
     "start": "go run main.go",
     "init": "go get -u -v github.com/golang/dep/... && dep init && yarn install",
@@ -13,15 +13,15 @@
   "author": "grayzone",
   "license": "ISC",
   "dependencies": {
-    "antd": "latest",
+    "antd": "^2.13.3",
     "babel-core": "latest",
     "babel-loader": "latest",
-    "babel-plugin-import": "latest",
+    "babel-plugin-import": "^1.5.0",
     "babel-preset-es2015": "latest",
     "babel-preset-react": "latest",
     "babel-preset-stage-2": "latest",
     "css-loader": "latest",
-    "eslint": "latest",
+    "eslint": "^4.7.2",
     "jquery": "latest",
     "less": "latest",
     "less-loader": "latest",
@@ -32,5 +32,6 @@
     "redux": "^3.7.2",
     "style-loader": "latest",
     "webpack": "latest"
-  }
+  },
+  "devDependencies": {}
 }

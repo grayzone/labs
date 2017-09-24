@@ -25,7 +25,7 @@ export default class CounterItem extends React.Component {
   };
 
   render() {
-    console.log("props:", this.props);
+ //   console.log("props:", this.props);
     return (
       <p>
         Clicked:{this.props.value} times{" "}

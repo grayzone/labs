@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import CounterItem from "../components/CounterItem";
 import * as CounterActions from "../actions/Counter";
 
-console.log("CounterActions:", CounterActions);
+//console.log("CounterActions:", CounterActions);
 
 const Counter = ({ value, actions }) => (
   <div>
