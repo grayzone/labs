@@ -14,24 +14,25 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^2.13.3",
-    "babel-core": "latest",
-    "babel-loader": "latest",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-import": "^1.5.0",
-    "babel-preset-es2015": "latest",
-    "babel-preset-react": "latest",
-    "babel-preset-stage-2": "latest",
-    "css-loader": "latest",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
-    "jquery": "latest",
+    "jquery": "^3.2.1",
     "less": "latest",
-    "less-loader": "latest",
+    "less-loader": "^4.0.5",
     "postcss-loader": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "style-loader": "latest",
     "webpack": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0"
+  }
 }

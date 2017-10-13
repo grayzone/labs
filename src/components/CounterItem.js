@@ -18,6 +18,7 @@ export default class CounterItem extends React.Component {
 
   handleIncrement = () => {
     this.props.actions.increment();
+    console.log("this:", this);
   };
 
   handleDecrement = () => {
@@ -25,7 +26,7 @@ export default class CounterItem extends React.Component {
   };
 
   render() {
- //   console.log("props:", this.props);
+    //   console.log("props:", this.props);
     return (
       <p>
         Clicked:{this.props.value} times{" "}
