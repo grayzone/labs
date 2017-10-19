@@ -18,7 +18,7 @@ AddTodo.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  value: state.todos
+  value: state.undoableTodos
 });
 
 const mapDispatchToProps = dispatch => ({
