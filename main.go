@@ -4,38 +4,30 @@ import (
 	"github.com/grayzone/labs/controllers"
 	"github.com/grayzone/labs/models"
 	//	_ "github.com/grayzone/labs/routers"
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/middleware/logger"
-	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/middleware/logger"
+	"github.com/kataras/iris/v12/middleware/recover"
+	"github.com/kataras/iris/v12/mvc"
 )
 
-var (
-	app *iris.Application
-)
+func main() {
+	app := iris.New()
+	app.Logger().SetLevel("debug")
 
-func configure(app *iris.Application) {
-	app.Configure(iris.WithoutServerError(iris.ErrServerClosed), iris.WithCharset("UTF-8"))
 	templates := iris.HTML("./views", ".html")
 	//	templates.Layout("layout.html")
 	//	templates.Reload(true)
 	app.RegisterView(templates)
-	app.StaticWeb("/static", "./static")
-	app.StaticWeb("/download", "./download")
-}
 
-func main() {
-	app = iris.New()
-	app.Configure(configure)
+	app.HandleDir("/static", "./static")
+	app.HandleDir("/download", "./download")
 
 	app.Use(recover.New())
 	app.Use(logger.New())
 
-	app.Logger().SetLevel("debug")
-
-	app.Controller("/", new(controllers.IndexController))
+	mvc.New(app).Handle(new(controllers.IndexController))
 
 	iris.RegisterOnInterrupt(models.CloseDB)
 
-	app.Run(iris.Addr(":8080"))
-
+	app.Run(iris.Addr(":8080"), iris.WithoutServerError(iris.ErrServerClosed))
 }
